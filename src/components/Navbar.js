@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { toggleTheme, initializeTheme } from '../utils/themeUtils';
 
 const Navbar = ({ toggleMenu }) => {
   const [scroll, setScroll] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
-    const themeInitialized = initializeTheme(); 
-    setIsDarkTheme(themeInitialized); 
-
     const handleScroll = () => {
       setScroll(window.scrollY > 50);
     };
@@ -17,11 +12,6 @@ const Navbar = ({ toggleMenu }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const handleToggleTheme = () => {
-    toggleTheme(); 
-    setIsDarkTheme(!isDarkTheme); 
-  };
 
   return (
     <nav className={`fixed top-0 w-full z-50 ${scroll ? 'bg-white shadow-lg dark:bg-spaceDark' : 'bg-transparent'}`}>
@@ -37,14 +27,6 @@ const Navbar = ({ toggleMenu }) => {
         </ul>
 
         <div className="flex items-center space-x-7">
-          {/* Theme Toggle Button */}
-          <button onClick={handleToggleTheme} className="ml-3">
-            <img 
-              src={isDarkTheme ? require('../assets/img/moon.png') : require('../assets/img/sun.png')} 
-              alt="Toggle Theme" className="w-10" 
-            />
-          </button>
-
           {/* Download CV Button */}
           <a 
             href="/assets/Deepika Sewwandi CV.pdf"  // Path to the PDF in the public folder
