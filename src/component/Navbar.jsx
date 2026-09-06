@@ -4,13 +4,34 @@ import '../css/Navbar.css';
 const Navbar = ({ toggleMenu }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('top');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+
+      const sections = ['top', 'aboutme', 'skills', 'projects', 'contact'];
+
+      let currentSection = 'top';
+
+      sections.forEach((sectionId) => {
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          const sectionTop = section.offsetTop - 150;
+
+          if (window.scrollY >= sectionTop) {
+            currentSection = sectionId;
+          }
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -34,44 +55,70 @@ const Navbar = ({ toggleMenu }) => {
       <div className="navbar-container">
 
         {/* Logo */}
-        <a href="#top" className="navbar-logo" onClick={closeMenu}>
+        <a
+          href="#top"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
           <img
             src={require('../assets/img/logo (2).png')}
             alt="Deepika Sewwandi Logo"
           />
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Navigation */}
         <ul className={`navbar-links ${menuOpen ? 'mobile-open' : ''}`}>
+
           <li>
-            <a href="#top" className="active" onClick={closeMenu}>
+            <a
+              href="#top"
+              className={activeSection === 'top' ? 'active' : ''}
+              onClick={closeMenu}
+            >
               Home
             </a>
           </li>
 
           <li>
-            <a href="#aboutme" onClick={closeMenu}>
+            <a
+              href="#aboutme"
+              className={activeSection === 'aboutme' ? 'active' : ''}
+              onClick={closeMenu}
+            >
               About Me
             </a>
           </li>
 
           <li>
-            <a href="#skills" onClick={closeMenu}>
+            <a
+              href="#skills"
+              className={activeSection === 'skills' ? 'active' : ''}
+              onClick={closeMenu}
+            >
               Skills
             </a>
           </li>
 
           <li>
-            <a href="#projects" onClick={closeMenu}>
+            <a
+              href="#projects"
+              className={activeSection === 'projects' ? 'active' : ''}
+              onClick={closeMenu}
+            >
               Projects
             </a>
           </li>
 
           <li>
-            <a href="#contact" onClick={closeMenu}>
+            <a
+              href="#contact"
+              className={activeSection === 'contact' ? 'active' : ''}
+              onClick={closeMenu}
+            >
               Contact
             </a>
           </li>
+
         </ul>
 
         {/* Right Side */}
@@ -86,7 +133,7 @@ const Navbar = ({ toggleMenu }) => {
             <span>Download CV</span>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu */}
           <button
             className={`menu-toggle ${menuOpen ? 'open' : ''}`}
             onClick={handleMenuToggle}

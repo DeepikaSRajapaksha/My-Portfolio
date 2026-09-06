@@ -1,0 +1,798 @@
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+.about-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 120px 7% 90px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND GLOWS
+   ========================================= */
+
+.about-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(100px);
+}
+
+
+.about-glow-one {
+  width: 350px;
+  height: 350px;
+
+  top: 20%;
+  left: -180px;
+
+  background: rgba(84, 94, 255, 0.07);
+}
+
+
+.about-glow-two {
+  width: 300px;
+  height: 300px;
+
+  right: -150px;
+  bottom: 10%;
+
+  background: rgba(145, 80, 255, 0.06);
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.about-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.85fr;
+
+  align-items: center;
+
+  gap: 100px;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+   ========================================= */
+
+.about-content {
+  max-width: 650px;
+}
+
+
+/* =========================================
+   LABEL
+   ========================================= */
+
+.about-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+}
+
+
+.about-label-line {
+  width: 38px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #777dff
+    );
+}
+
+
+.about-label span:last-child {
+  color: rgba(190, 195, 225, 0.55);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.about-title {
+  margin: 0;
+
+  max-width: 650px;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 4vw, 58px);
+
+  font-weight: 500;
+
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+}
+
+
+.about-title span {
+  display: inline;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8990ff,
+      #b39aff,
+      #ffffff
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.about-description {
+  max-width: 600px;
+
+  margin: 25px 0 0;
+
+  color: rgba(241, 232, 232, 0.937);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+
+  font-weight: 400;
+}
+
+
+.about-description + .about-description {
+  margin-top: 14px;
+}
+
+
+/* =========================================
+   TAGS
+   ========================================= */
+
+.about-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 30px;
+}
+
+
+.about-tags span {
+  padding: 8px 13px;
+
+  border: 1px solid
+    rgba(140, 150, 220, 0.18);
+
+  border-radius: 5px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color: rgba(215, 220, 240, 0.874);
+
+  font-size: 10px;
+
+  letter-spacing: 0.4px;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.about-tags span:hover {
+  border-color:
+    rgba(130, 140, 255, 0.688);
+
+  color: #ffffff;
+
+  background:
+    rgba(100, 110, 255, 0.08);
+}
+
+
+/* =========================================
+   QUOTE
+   ========================================= */
+
+.about-quote {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 38px;
+}
+
+
+.quote-line {
+  width: 2px;
+  height: 30px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #777dff,
+      transparent
+    );
+}
+
+
+.about-quote p {
+  margin: 0;
+
+  color: rgba(180, 185, 215, 0.45);
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  letter-spacing: 0.3px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   MY APPROACH — RIGHT SIDE
+   ========================================= */
+
+.about-visual {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   MAIN APPROACH CARD
+   ========================================= */
+
+.approach-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 480px;
+
+  padding: 34px 32px;
+
+  border:
+    1px solid rgba(145, 155, 220, 0.16);
+
+  border-radius: 12px;
+
+}
+
+
+.approach-card:hover {
+  border-color:
+    rgba(135, 145, 255, 0.534);
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(90, 100, 255, 0.08);
+}
+
+
+/* =========================================
+   CARD TOP
+   ========================================= */
+
+.approach-header {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-bottom: 27px;
+
+  border-bottom:
+    1px solid rgba(145, 155, 220, 0.178);
+}
+
+
+.approach-mini-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    rgba(150, 160, 210, 0.882);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+
+.approach-header h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 450;
+
+  letter-spacing: -0.8px;
+}
+
+
+.approach-header h3 span {
+  display: block;
+
+  color:
+    rgba(170, 175, 215, 0.805);
+
+  font-weight: 400;
+}
+
+
+.approach-number {
+  color:
+    rgba(125, 136, 255, 0.789);
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  padding-top: 3px;
+}
+
+
+/* =========================================
+   APPROACH LIST
+   ========================================= */
+
+.approach-list {
+  padding-top: 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0;
+}
+
+
+/* =========================================
+   APPROACH ITEM
+   ========================================= */
+
+.approach-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    38px
+    25px
+    1fr;
+
+  min-height: 115px;
+}
+
+
+/* =========================================
+   INDEX
+   ========================================= */
+
+.approach-index {
+  position: relative;
+
+  z-index: 2;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(125, 135, 255, 0.25);
+
+  border-radius: 50%;
+
+  background:
+    #0b0e1d;
+
+  color:
+    rgba(150, 160, 255, 0.75);
+
+  font-size: 8px;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.approach-item:hover .approach-index {
+  border-color:
+    rgba(130, 140, 255, 0.6);
+
+  background:
+    rgba(100, 110, 255, 0.12);
+
+  box-shadow:
+    0 0 18px rgba(100, 110, 255, 0.12);
+}
+
+
+/* =========================================
+   CONNECTING LINE
+   ========================================= */
+
+.approach-line {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  width: 25px;
+}
+
+
+.approach-line::before {
+  content: "";
+
+  position: absolute;
+
+  top: 30px;
+  bottom: -1px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(120, 130, 255, 0.25),
+      rgba(120, 130, 255, 0.03)
+    );
+}
+
+
+.approach-item:last-child
+.approach-line::before {
+  display: none;
+}
+
+
+.approach-line span {
+  display: none;
+}
+
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.approach-text {
+  padding:
+    0 0 28px 10px;
+}
+
+
+.approach-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    rgba(125, 136, 255, 0.767);
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+}
+
+
+.approach-text h4 {
+  margin: 0;
+
+  color:
+    rgba(235, 238, 250, 0.9);
+
+  font-size: 17px;
+
+  font-weight: 450;
+
+  line-height: 1.25;
+}
+
+
+.approach-text h4 span {
+  color:
+    rgba(168, 177, 229, 0.666);
+
+  font-weight: 400;
+}
+
+
+.approach-text p {
+  max-width: 330px;
+
+  margin: 7px 0 0;
+
+  color:
+    rgba(210, 214, 228, 0.789);
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.approach-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 3px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(145, 155, 220, 0.307);
+}
+
+
+.approach-footer-dot {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    #777dff;
+
+  box-shadow:
+    0 0 9px rgba(115, 125, 255, 0.7);
+}
+
+
+.approach-footer p {
+  margin: 0;
+
+  color:
+    rgba(160, 170, 200, 0.71);
+
+  font-size: 8px;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* =========================================
+   DECORATIVE CORNER
+   ========================================= */
+
+.approach-decoration {
+  position: absolute;
+
+  right: -70px;
+  bottom: -70px;
+
+  width: 180px;
+  height: 180px;
+
+  border:
+    1px solid rgba(110, 120, 255, 0.07);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.approach-decoration::before {
+  content: "";
+
+  position: absolute;
+
+  top: 25px;
+  left: 25px;
+
+  width: 130px;
+  height: 130px;
+
+  border:
+    1px solid rgba(150, 100, 255, 0.045);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+  .approach-card {
+    max-width: 430px;
+
+    padding: 30px 27px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 24px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 750px) {
+
+  .about-visual {
+    width: 100%;
+  }
+
+
+  .approach-card {
+    max-width: 100%;
+
+    padding: 28px 24px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 24px;
+  }
+
+
+  .approach-text p {
+    max-width: 100%;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 450px) {
+
+  .approach-card {
+    padding: 24px 20px;
+  }
+
+
+  .approach-header {
+    padding-bottom: 22px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 22px;
+  }
+
+
+  .approach-number {
+    font-size: 7px;
+  }
+
+
+  .approach-list {
+    padding-top: 23px;
+  }
+
+
+  .approach-item {
+    grid-template-columns:
+      34px
+      20px
+      1fr;
+
+    min-height: 110px;
+  }
+
+
+  .approach-index {
+    width: 27px;
+    height: 27px;
+
+    font-size: 7px;
+  }
+
+
+  .approach-text {
+    padding-left: 8px;
+  }
+
+
+  .approach-text h4 {
+    font-size: 15px;
+  }
+
+
+  .approach-text p {
+    font-size: 9px;
+  }
+
+
+  .approach-footer p {
+    font-size: 7px;
+  }
+
+}
