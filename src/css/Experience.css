@@ -1,0 +1,683 @@
+/* =========================================
+   EXPERIENCE SECTION
+   ========================================= */
+
+.experience-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.experience-container {
+  position: relative;
+  width: min(1180px, 90%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+
+  gap: 90px;
+}
+
+
+/* =========================================
+   LEFT VISUAL
+   ========================================= */
+
+.experience-visual {
+  position: relative;
+
+  width: 100%;
+  height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+   ========================================= */
+
+.experience-glow {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(85, 105, 255, 0.16),
+      rgba(120, 70, 255, 0.08),
+      transparent 70%
+    );
+
+  filter: blur(35px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   PHOTOS
+   ========================================= */
+
+.experience-photo {
+  position: absolute;
+
+  overflow: hidden;
+
+  background: #111525;
+
+  border: 1px solid rgba(135, 150, 255, 0.35);
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(90, 110, 255, 0.08);
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+
+  user-select: none;
+}
+
+
+/* Image */
+
+.experience-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    brightness(0.88)
+    saturate(0.9);
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   MAIN PHOTO
+   ========================================= */
+
+.experience-photo-1 {
+  width: 270px;
+  height: 350px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-4deg);
+
+  z-index: 3;
+}
+
+
+/* =========================================
+   SECOND PHOTO
+   ========================================= */
+
+.experience-photo-2 {
+  width: 190px;
+  height: 250px;
+
+  left: 5%;
+  top: 16%;
+
+  transform:
+    rotate(-10deg);
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   THIRD PHOTO
+   ========================================= */
+
+.experience-photo-3 {
+  width: 190px;
+  height: 250px;
+
+  right: 3%;
+  bottom: 13%;
+
+  transform:
+    rotate(9deg);
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   PHOTO HOVER
+   ========================================= */
+
+.experience-photo:hover {
+  border-color: rgba(145, 160, 255, 0.8);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(90, 110, 255, 0.18);
+
+  z-index: 10;
+}
+
+
+.experience-photo-1:hover {
+  transform:
+    translate(-50%, -50%)
+    rotate(-2deg)
+    scale(1.03);
+}
+
+
+.experience-photo-2:hover {
+  transform:
+    rotate(-7deg)
+    translateY(-8px)
+    scale(1.03);
+}
+
+
+.experience-photo-3:hover {
+  transform:
+    rotate(6deg)
+    translateY(-8px)
+    scale(1.03);
+}
+
+
+.experience-photo:hover img {
+  transform: scale(1.06);
+
+  filter:
+    brightness(1)
+    saturate(1.05);
+}
+
+
+/* =========================================
+   PHOTO NUMBER
+   ========================================= */
+
+.photo-number {
+  position: absolute;
+
+  right: 14px;
+  bottom: 12px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  padding: 5px 8px;
+
+  background: rgba(8, 10, 22, 0.65);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================
+   DECORATIVE LINE
+   ========================================= */
+
+.experience-line {
+  position: absolute;
+
+  width: 1px;
+  height: 470px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(110, 130, 255, 0.35),
+      rgba(170, 100, 255, 0.35),
+      transparent
+    );
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   DECORATIVE DOTS
+   ========================================= */
+
+.experience-dot {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: rgba(150, 165, 255, 0.8);
+
+  box-shadow:
+    0 0 12px rgba(120, 140, 255, 0.8);
+
+  z-index: 5;
+}
+
+.experience-dot-1 {
+  left: 14%;
+  top: 12%;
+}
+
+.experience-dot-2 {
+  right: 13%;
+  top: 22%;
+}
+
+
+/* =========================================
+   RIGHT CONTENT
+   ========================================= */
+
+.experience-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   LABEL
+   ========================================= */
+
+.experience-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 22px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: rgba(160, 175, 255, 0.8);
+}
+
+
+.label-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(110, 130, 255, 0),
+      rgba(110, 130, 255, 0.9)
+    );
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.experience-title {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: clamp(38px, 4.5vw, 64px);
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+
+  color: #f5f6ff;
+}
+
+
+.experience-title span {
+  display: block;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8ea0ff,
+      #b58cff
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.experience-intro {
+  max-width: 570px;
+
+  margin: 25px 0 45px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: rgba(210, 215, 235, 0.65);
+}
+
+
+/* =========================================
+   EXPERIENCE ITEM
+   ========================================= */
+
+.experience-item {
+  position: relative;
+
+  padding: 25px 0;
+
+  border-top: 1px solid rgba(150, 160, 200, 0.14);
+}
+
+
+.experience-item-secondary {
+  padding-bottom: 0;
+}
+
+
+/* =========================================
+   ITEM TOP
+   ========================================= */
+
+.experience-item-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+.experience-item h3 {
+  margin: 0 0 7px;
+
+  font-size: 21px;
+
+  font-weight: 500;
+
+  color: #f2f3ff;
+}
+
+
+.experience-company {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: rgba(145, 160, 255, 0.75);
+}
+
+
+/* =========================================
+   DATE
+   ========================================= */
+
+.experience-date {
+  flex-shrink: 0;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  color: rgba(210, 215, 235, 0.45);
+
+  padding-top: 5px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.experience-description {
+  max-width: 600px;
+
+  margin: 16px 0 18px;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  color: rgba(205, 210, 230, 0.55);
+}
+
+
+/* =========================================
+   TECHNOLOGY TAGS
+   ========================================= */
+
+.experience-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.experience-tags span {
+  padding: 6px 11px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+
+  color: rgba(175, 185, 255, 0.8);
+
+  background: rgba(100, 115, 200, 0.07);
+
+  border: 1px solid rgba(120, 135, 220, 0.15);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.experience-tags span:hover {
+  background: rgba(100, 115, 220, 0.13);
+
+  border-color: rgba(130, 145, 255, 0.35);
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+  .experience-container {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .experience-visual {
+    height: 500px;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+  .experience-content {
+    max-width: 700px;
+
+    margin: 0 auto;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .experience-section {
+    padding: 80px 0;
+  }
+
+  .experience-container {
+    width: 88%;
+
+    gap: 45px;
+  }
+
+  .experience-visual {
+    height: 390px;
+
+    width: 100%;
+  }
+
+
+  /* Main image */
+
+  .experience-photo-1 {
+    width: 190px;
+    height: 255px;
+  }
+
+
+  /* Small images */
+
+  .experience-photo-2 {
+    width: 125px;
+    height: 170px;
+
+    left: 0;
+    top: 13%;
+  }
+
+  .experience-photo-3 {
+    width: 125px;
+    height: 170px;
+
+    right: 0;
+    bottom: 10%;
+  }
+
+
+  .experience-line {
+    height: 320px;
+  }
+
+
+  .experience-title {
+    font-size: 39px;
+
+    letter-spacing: -1.5px;
+  }
+
+
+  .experience-intro {
+    font-size: 14px;
+
+    margin-top: 20px;
+
+    margin-bottom: 35px;
+  }
+
+
+  .experience-item-top {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+
+  .experience-date {
+    padding-top: 0;
+  }
+
+
+  .experience-description {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+  .experience-visual {
+    height: 340px;
+  }
+
+  .experience-photo-1 {
+    width: 165px;
+    height: 225px;
+  }
+
+  .experience-photo-2 {
+    width: 105px;
+    height: 145px;
+  }
+
+  .experience-photo-3 {
+    width: 105px;
+    height: 145px;
+  }
+
+  .experience-title {
+    font-size: 34px;
+  }
+
+}

@@ -10,7 +10,7 @@ const Navbar = ({ toggleMenu }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ['top', 'aboutme', 'skills', 'projects', 'contact'];
+      const sections = ['top', 'aboutme', 'experience', 'skills', 'projects', 'contact'];
 
       let currentSection = 'top';
 
@@ -86,6 +86,16 @@ const Navbar = ({ toggleMenu }) => {
               onClick={closeMenu}
             >
               About Me
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#experience"
+              className={activeSection === 'experience' ? 'active' : ''}
+              onClick={closeMenu}
+            >
+              Experience
             </a>
           </li>
 
