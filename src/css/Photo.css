@@ -1,0 +1,583 @@
+/* =========================================
+   PHOTO REEL SECTION
+   ========================================= */
+
+.photo-reel-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 70px 0 90px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   TOP GLOW
+   ========================================= */
+
+.photo-reel-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: -100px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 600px;
+  height: 180px;
+
+  background: rgba(89, 86, 255, 0.08);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   HEADING
+   ========================================= */
+
+.photo-reel-heading {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-bottom: 35px;
+}
+
+
+.photo-reel-heading p {
+  margin: 0;
+
+  color: rgba(210, 215, 240, 0.55);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  white-space: nowrap;
+}
+
+
+.reel-line {
+  width: 45px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(120, 130, 255, 0.5)
+    );
+}
+
+
+.reel-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(120, 130, 255, 0.5),
+      transparent
+    );
+}
+
+
+/* =========================================
+   REEL CONTAINER
+   ========================================= */
+
+.photo-reel {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 25px 0 35px;
+}
+
+
+/* =========================================
+   FADE EDGES
+   ========================================= */
+
+.photo-reel::before,
+.photo-reel::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 180px;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+
+.photo-reel::before {
+  left: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #070a16 0%,
+      rgba(7, 10, 22, 0.9) 25%,
+      transparent 100%
+    );
+}
+
+
+.photo-reel::after {
+  right: 0;
+
+  background:
+    linear-gradient(
+      -90deg,
+      #070a16 0%,
+      rgba(7, 10, 22, 0.9) 25%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================
+   MOVING TRACK
+   ========================================= */
+
+.photo-track {
+  display: flex;
+
+  align-items: center;
+
+  width: max-content;
+
+  gap: 18px;
+
+  animation:
+    photoReelMove 55s linear infinite;
+
+  will-change: transform;
+}
+
+
+/*
+ * IMPORTANT:
+ * Hovering anywhere over the reel stops
+ * the complete animation.
+ */
+
+.photo-reel:hover .photo-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================
+   CONTINUOUS MOVEMENT
+   ========================================= */
+
+@keyframes photoReelMove {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================
+   PHOTO CARD
+   ========================================= */
+
+.photo-card {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 220px;
+  height: 280px;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  border: 1px solid rgba(150, 160, 220, 0.18);
+
+  background: #101323;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(80, 90, 180, 0.06);
+
+  cursor: default;
+
+  transform-origin: center;
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    filter 0.4s ease;
+}
+
+
+/* =========================================
+   PHOTO
+   ========================================= */
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    brightness(0.78)
+    saturate(0.88);
+
+  transition:
+    transform 0.6s ease,
+    filter 0.5s ease;
+}
+
+
+/* =========================================
+   DARK GLASS OVERLAY
+   ========================================= */
+
+.photo-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 8, 20, 0.02),
+      rgba(5, 8, 20, 0.28)
+    );
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.photo-card:hover {
+  transform:
+    translateY(-12px)
+    scale(1.04)
+    rotate(0deg);
+
+  border-color:
+    rgba(130, 145, 255, 0.65);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(92, 105, 255, 0.16);
+}
+
+
+.photo-card:hover img {
+  transform: scale(1.05);
+
+  filter:
+    brightness(1)
+    saturate(1);
+}
+
+
+.photo-card:hover .photo-overlay {
+  opacity: 0;
+}
+
+
+/* =========================================
+   DIFFERENT CARD ANGLES
+   ========================================= */
+
+.photo-card-0 {
+  transform: rotate(-4deg);
+}
+
+
+.photo-card-1 {
+  transform: rotate(2deg);
+}
+
+
+.photo-card-2 {
+  transform: rotate(-2deg);
+}
+
+
+.photo-card-3 {
+  transform: rotate(4deg);
+}
+
+
+.photo-card-4 {
+  transform: rotate(-3deg);
+}
+
+
+.photo-card-5 {
+  transform: rotate(2.5deg);
+}
+
+
+/*
+ * Keep the tilt when not hovering,
+ * but remove it on hover.
+ */
+
+.photo-card-0:hover,
+.photo-card-1:hover,
+.photo-card-2:hover,
+.photo-card-3:hover,
+.photo-card-4:hover,
+.photo-card-5:hover {
+  transform:
+    translateY(-12px)
+    scale(1.04)
+    rotate(0deg);
+}
+
+
+/* =========================================
+   SUBTLE LIGHT BORDER
+   ========================================= */
+
+.photo-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  border-radius: inherit;
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   BOTTOM FOOTER
+   ========================================= */
+
+.photo-reel-footer {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 20px;
+
+  color: rgba(175, 185, 215, 0.45);
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+
+.footer-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #7b7dff;
+
+  box-shadow:
+    0 0 8px rgba(110, 115, 255, 0.7);
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .photo-reel-section {
+    padding: 60px 0 70px;
+  }
+
+
+  .photo-reel-heading {
+    margin-bottom: 25px;
+  }
+
+
+  .photo-card {
+    width: 190px;
+    height: 245px;
+  }
+
+
+  .photo-track {
+    gap: 15px;
+
+    animation-duration: 50s;
+  }
+
+
+  .photo-reel::before,
+  .photo-reel::after {
+    width: 100px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .photo-reel-section {
+    padding: 50px 0 60px;
+  }
+
+
+  .photo-reel-heading {
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .photo-reel-heading p {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .reel-line {
+    width: 30px;
+  }
+
+
+  .photo-reel {
+    padding:
+      20px 0
+      30px;
+  }
+
+
+  .photo-card {
+    width: 155px;
+    height: 205px;
+
+    border-radius: 4px;
+  }
+
+
+  .photo-track {
+    gap: 12px;
+
+    animation-duration: 45s;
+  }
+
+
+  .photo-reel::before,
+  .photo-reel::after {
+    width: 65px;
+  }
+
+
+  .photo-reel-footer {
+    font-size: 8px;
+
+    letter-spacing: 0.5px;
+
+    padding: 0 20px;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  .photo-card {
+    width: 135px;
+    height: 180px;
+  }
+
+
+  .photo-track {
+    gap: 10px;
+
+    animation-duration: 42s;
+  }
+
+
+  .photo-reel::before,
+  .photo-reel::after {
+    width: 45px;
+  }
+}
+
+
+/* =========================================
+   REDUCE MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .photo-track {
+    animation: none;
+  }
+
+  .photo-card,
+  .photo-card img {
+    transition: none;
+  }
+}
