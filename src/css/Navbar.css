@@ -1,13 +1,18 @@
+/* =========================================
+   NAVBAR
+   ========================================= */
+
 .navbar {
   position: fixed;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
 
-  width: calc(100% - 20px);
-  max-width: 90%;
+  width: calc(100% - 40px);
+  max-width: 1400px;
 
   background: rgba(13, 15, 29, 0.55);
+
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
@@ -18,11 +23,21 @@
     0 0 25px rgba(100, 120, 255, 0.08);
 
   z-index: 1000;
-  transition: all 0.3s ease;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    top 0.3s ease;
 }
 
+
+/* =========================================
+   SCROLLED NAVBAR
+   ========================================= */
+
 .navbar-scrolled {
-  background: rgba(21, 23, 35, 0.85);
+  background: rgba(21, 23, 35, 0.88);
 
   border-color: rgba(150, 190, 255, 0.4);
 
@@ -30,12 +45,19 @@
     0 0 30px rgba(100, 120, 255, 0.15);
 }
 
-/* Small cosmic glow behind navbar */
+
+/* =========================================
+   COSMIC GLOW
+   ========================================= */
+
 .navbar::before {
   content: "";
+
   position: absolute;
+
   top: -100px;
   left: 50%;
+
   transform: translateX(-50%);
 
   width: 500px;
@@ -46,6 +68,8 @@
   filter: blur(70px);
 
   pointer-events: none;
+
+  z-index: -1;
 }
 
 
@@ -56,9 +80,7 @@
 .navbar-container {
   position: relative;
 
-  max-width: 100%;
-
-  margin: 0 auto;
+  width: 100%;
 
   padding: 10px 20px;
 
@@ -66,7 +88,9 @@
   align-items: center;
   justify-content: space-between;
 
-  gap: 50px;
+  gap: 30px;
+
+  box-sizing: border-box;
 }
 
 
@@ -81,7 +105,10 @@
   text-decoration: none;
 
   position: relative;
+
+  flex-shrink: 0;
 }
+
 
 .navbar-logo img {
   width: 120px;
@@ -93,6 +120,7 @@
     transform 0.3s ease,
     filter 0.3s ease;
 }
+
 
 .navbar-logo:hover img {
   transform: scale(1.04);
@@ -109,9 +137,10 @@
 
 .navbar-links {
   display: flex;
+
   align-items: center;
 
-  gap: 50px;
+  gap: 45px;
 
   margin: 0;
   padding: 0 10px;
@@ -119,9 +148,11 @@
   list-style: none;
 }
 
+
 .navbar-links li {
   position: relative;
 }
+
 
 .navbar-links a {
   position: relative;
@@ -145,7 +176,10 @@
 }
 
 
-/* Hover */
+/* =========================================
+   HOVER
+   ========================================= */
+
 .navbar-links a:hover {
   color: #ffffff;
 
@@ -154,7 +188,10 @@
 }
 
 
-/* Cosmic underline */
+/* =========================================
+   COSMIC UNDERLINE
+   ========================================= */
+
 .navbar-links a::after {
   content: "";
 
@@ -183,13 +220,17 @@
   transition: width 0.3s ease;
 }
 
+
 .navbar-links a:hover::after,
 .navbar-links a.active::after {
   width: 100%;
 }
 
 
-/* Active link */
+/* =========================================
+   ACTIVE LINK
+   ========================================= */
+
 .navbar-links a.active {
   color: #ffffff;
 }
@@ -201,14 +242,17 @@
 
 .navbar-actions {
   display: flex;
+
   align-items: center;
 
-  gap: 18px;
+  gap: 15px;
+
+  flex-shrink: 0;
 }
 
 
 /* =========================================
-   DOWNLOAD CV BUTTON
+   DOWNLOAD CV
    ========================================= */
 
 .cv-button {
@@ -216,6 +260,7 @@
 
   display: flex;
   align-items: center;
+
   gap: 9px;
 
   padding: 10px 17px;
@@ -238,6 +283,8 @@
   font-size: 13px;
   font-weight: 600;
 
+  white-space: nowrap;
+
   overflow: hidden;
 
   box-shadow:
@@ -252,7 +299,10 @@
 }
 
 
-/* Button shine */
+/* =========================================
+   BUTTON SHINE
+   ========================================= */
+
 .cv-button::before {
   content: "";
 
@@ -275,6 +325,7 @@
 
   transition: left 0.6s ease;
 }
+
 
 .cv-button:hover::before {
   left: 140%;
@@ -299,34 +350,30 @@
 }
 
 
-.cv-button:hover .cv-arrow {
-  transform: translate(2px, -2px);
-}
-
-
 /* =========================================
    MOBILE MENU BUTTON
    ========================================= */
-/* 
-.mobile-menu-button {
+
+.menu-toggle {
   display: none;
 
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
 
-  padding: 9px;
+  padding: 0;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(130, 140, 255, 0.3);
 
   border-radius: 8px;
 
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(90, 100, 255, 0.12);
 
   cursor: pointer;
 
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
 
   gap: 5px;
 
@@ -335,109 +382,341 @@
     border-color 0.3s ease;
 }
 
-.mobile-menu-button:hover {
-  background: rgba(100, 110, 255, 0.12);
 
-  border-color: rgba(120, 130, 255, 0.4);
+.menu-toggle:hover {
+  background: rgba(90, 100, 255, 0.22);
+
+  border-color: rgba(140, 150, 255, 0.6);
 }
 
-.mobile-menu-button span {
+
+.menu-toggle span {
   display: block;
 
-  width: 20px;
+  width: 19px;
   height: 2px;
 
   border-radius: 10px;
 
   background: #ffffff;
 
-  transition: all 0.3s ease;
-} */
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================
+   HAMBURGER → X
+   ========================================= */
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 
 /* =========================================
    TABLET
    ========================================= */
 
-/* @media (max-width: 900px) {
+@media (max-width: 1100px) {
+
+  .navbar {
+    width: calc(100% - 30px);
+  }
 
   .navbar-container {
-    padding: 16px 24px;
+    padding: 9px 16px;
+    gap: 20px;
   }
 
   .navbar-links {
-    gap: 22px;
+    gap: 25px;
   }
 
   .navbar-links a {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .navbar-logo img {
-    width: 135px;
+    width: 105px;
   }
-} */
+
+  .cv-button {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================
+   SMALL TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+  .navbar {
+    top: 20px;
+  }
+
+  .navbar-links {
+    gap: 18px;
+  }
+
+  .navbar-container {
+    gap: 15px;
+  }
+
+  .navbar-logo img {
+    width: 100px;
+  }
+
+  .cv-button {
+    padding: 8px 12px;
+  }
+}
 
 
 /* =========================================
    MOBILE
    ========================================= */
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
+
+  .navbar {
+    top: 15px;
+
+    width: calc(100% - 24px);
+
+    border-radius: 14px;
+  }
+
 
   .navbar-container {
-    padding: 15px 20px;
+    padding: 8px 12px;
   }
+
+
+  /* Logo */
+
+  .navbar-logo img {
+    width: 100px;
+  }
+
+
+  /* Hide desktop navigation */
 
   .navbar-links {
     display: none;
   }
 
-  .mobile-menu-button {
+
+  /* Mobile navigation */
+
+  .navbar-links.mobile-open {
+    position: absolute;
+
     display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    top: calc(100% + 10px);
+
+    left: 0;
+    right: 0;
+
+    padding: 10px;
+
+    background: rgba(13, 15, 29, 0.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(152, 167, 188, 0.25);
+
+    border-radius: 14px;
+
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.35),
+      0 0 25px rgba(100, 120, 255, 0.08);
+
+    animation: mobileMenu 0.25s ease forwards;
   }
 
-  .navbar-logo img {
-    width: 130px;
+
+  .navbar-links.mobile-open li {
+    width: 100%;
   }
 
-  .cv-button {
-    padding: 9px 13px;
 
-    font-size: 13px;
+  .navbar-links.mobile-open a {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    font-size: 14px;
   }
 
-  .navbar-actions {
-    gap: 10px;
-  }
-} */
 
-
-/* =========================================
-   SMALL MOBILE
-   ========================================= */
-/* 
-@media (max-width: 480px) {
-
-  .navbar-container {
-    padding: 14px 16px;
+  .navbar-links.mobile-open a:hover {
+    background: rgba(100, 110, 255, 0.1);
   }
 
-  .navbar-logo img {
-    width: 115px;
-  }
 
-  .cv-button span:first-child {
+  .navbar-links.mobile-open a::after {
     display: none;
   }
 
+
+  /* CV */
+
   .cv-button {
-    width: 38px;
-    height: 38px;
+    padding: 8px 12px;
 
-    padding: 0;
+    font-size: 11px;
 
-    justify-content: center;
+    border-radius: 7px;
   }
 
-} */
+
+  /* Hamburger */
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+
+/* =========================================
+   MOBILE SMALL
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    top: 10px;
+
+    width: calc(100% - 16px);
+
+    border-radius: 12px;
+  }
+
+
+  .navbar-container {
+    padding: 7px 10px;
+  }
+
+
+  .navbar-logo img {
+    width: 88px;
+  }
+
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+
+  .cv-button {
+    padding: 7px 9px;
+
+    font-size: 10px;
+  }
+
+
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .menu-toggle span {
+    width: 17px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 360px) {
+
+  .navbar-logo img {
+    width: 78px;
+  }
+
+
+  .cv-button {
+    padding: 6px 8px;
+
+    font-size: 9px;
+  }
+
+
+  .menu-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+/* =========================================
+   MOBILE MENU ANIMATION
+   ========================================= */
+
+@keyframes mobileMenu {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   REDUCE MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar,
+  .navbar-logo img,
+  .navbar-links a,
+  .cv-button,
+  .menu-toggle,
+  .menu-toggle span {
+    transition: none;
+  }
+
+  .navbar-links.mobile-open {
+    animation: none;
+  }
+}
