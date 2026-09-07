@@ -1,0 +1,474 @@
+/* =========================================
+   ASTRO ANIMATED BACKGROUND
+   ========================================= */
+
+.astro-background {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(71, 75, 180, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(110, 60, 180, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(30, 80, 180, 0.05),
+      transparent 45%
+    ),
+    #050816;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================
+   COSMIC GLOW
+   ========================================= */
+
+.cosmic-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  opacity: 0.35;
+
+  animation: cosmicFloat 12s ease-in-out infinite;
+}
+
+
+/* First Glow */
+
+.glow-one {
+  width: 350px;
+  height: 350px;
+
+  top: -100px;
+  left: -100px;
+
+  background: rgba(67, 83, 255, 0.25);
+}
+
+
+/* Second Glow */
+
+.glow-two {
+  width: 450px;
+  height: 450px;
+
+  right: -150px;
+  top: 25%;
+
+  background: rgba(137, 65, 255, 0.18);
+
+  animation-delay: -4s;
+}
+
+
+/* Third Glow */
+
+.glow-three {
+  width: 300px;
+  height: 300px;
+
+  left: 40%;
+  bottom: -150px;
+
+  background: rgba(40, 150, 255, 0.15);
+
+  animation-delay: -8s;
+}
+
+
+/* =========================================
+   COSMIC GLOW ANIMATION
+   ========================================= */
+
+@keyframes cosmicFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+}
+
+
+/* =========================================
+   LARGE DISTANT STARS
+   ========================================= */
+
+.stars-three {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 1.5px,
+      transparent 1.5px
+    );
+
+  background-size: 240px 240px;
+
+  background-position: 100px 120px;
+
+  animation-duration: 180s;
+
+  opacity: 0.4;
+}
+
+
+/* =========================================
+   STAR MOVEMENT
+   ========================================= */
+
+@keyframes starsMove {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-240px);
+  }
+}
+
+/* =========================================
+   SUBTLE FLOATING PARTICLES
+   ========================================= */
+
+.particles-container {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+/* =========================================
+   SMALL PARTICLES
+   ========================================= */
+
+.full-page-particle {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 0 4px rgba(180, 200, 255, 0.5);
+
+  animation-name: subtleParticleFloat;
+
+  animation-timing-function: ease-in-out;
+
+  animation-iteration-count: infinite;
+
+  opacity: 0.35;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   VERY SLOW MOVEMENT
+   ========================================= */
+
+@keyframes subtleParticleFloat {
+
+  0% {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: translate3d(8px, -10px, 0);
+
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translate3d(-6px, -18px, 0);
+
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translate3d(8px, -10px, 0);
+
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+
+    opacity: 0.2;
+  }
+}
+
+/* =========================================
+   SHOOTING STARS
+   ========================================= */
+
+.shooting-star {
+  position: absolute;
+
+  width: 120px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    );
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 15px rgba(120, 160, 255, 0.6);
+
+  transform: rotate(-35deg);
+
+  opacity: 0;
+
+  animation:
+    shootingStar 6s linear infinite;
+
+  z-index: 4;
+}
+
+.shooting-one {
+  top: 20%;
+  left: 70%;
+
+  animation-delay: 2s;
+}
+
+.shooting-two {
+  top: 45%;
+  left: 20%;
+
+  animation-delay: 7s;
+}
+
+.shooting-three {
+  top: 70%;
+  left: 80%;
+
+  animation-delay: 12s;
+}
+
+.shooting-four {
+  top: 30%;
+  left: 10%;
+
+  animation-delay: 17s;
+}
+
+.shooting-five {
+  top: 60%;
+  left: 90%;
+
+  animation-delay: 22s;
+}
+
+
+/* =========================================
+   SHOOTING STAR ANIMATION
+   ========================================= */
+
+@keyframes shootingStar {
+
+  0% {
+    transform:
+      translate(0, 0)
+      rotate(-35deg);
+
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  30% {
+    transform:
+      translate(-300px, 200px)
+      rotate(-35deg);
+
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   EXTRA COSMIC LIGHT
+   ========================================= */
+
+.astro-background::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 0%,
+      rgba(5, 8, 22, 0.1) 50%,
+      rgba(5, 8, 22, 0.5) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   VIGNETTE EFFECT
+   ========================================= */
+
+.astro-background::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  box-shadow:
+    inset 0 0 150px rgba(0, 0, 0, 0.65);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .glow-one {
+    width: 250px;
+    height: 250px;
+  }
+
+  .glow-two {
+    width: 300px;
+    height: 300px;
+  }
+
+  .glow-three {
+    width: 220px;
+    height: 220px;
+  }
+
+  .shooting-star {
+    width: 80px;
+  }
+
+  .stars-one {
+    background-size: 70px 70px;
+  }
+
+  .stars-two {
+    background-size: 120px 120px;
+  }
+
+  .stars-three {
+    background-size: 190px 190px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .glow-one {
+    width: 200px;
+    height: 200px;
+  }
+
+  .glow-two {
+    width: 240px;
+    height: 240px;
+  }
+
+  .glow-three {
+    width: 180px;
+    height: 180px;
+  }
+
+  .full-page-particle {
+    box-shadow:
+      0 0 5px rgba(180, 200, 255, 0.8),
+      0 0 10px rgba(100, 130, 255, 0.5);
+  }
+
+  .shooting-star {
+    width: 65px;
+  }
+}
+
+
+/* =========================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stars,
+  .cosmic-glow,
+  .full-page-particle,
+  .shooting-star {
+    animation: none;
+  }
+}
