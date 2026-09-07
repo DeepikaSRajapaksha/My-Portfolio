@@ -4,13 +4,13 @@
 
 .about-section {
   position: relative;
-
   width: 100%;
   min-height: 100vh;
 
   padding: 120px 7% 90px;
 
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 
@@ -67,13 +67,13 @@
 
   display: grid;
 
-  grid-template-columns:
-    1.15fr
-    0.85fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 
   align-items: center;
 
-  gap: 100px;
+  gap: clamp(50px, 7vw, 100px);
+
+  box-sizing: border-box;
 }
 
 
@@ -82,6 +82,7 @@
    ========================================= */
 
 .about-content {
+  width: 100%;
   max-width: 650px;
 }
 
@@ -104,6 +105,8 @@
 .about-label-line {
   width: 38px;
   height: 1px;
+
+  flex-shrink: 0;
 
   background:
     linear-gradient(
@@ -143,6 +146,8 @@
   line-height: 1.08;
 
   letter-spacing: -2px;
+
+  overflow-wrap: break-word;
 }
 
 
@@ -169,6 +174,7 @@
    ========================================= */
 
 .about-description {
+  width: 100%;
   max-width: 600px;
 
   margin: 25px 0 0;
@@ -257,6 +263,8 @@
   width: 2px;
   height: 30px;
 
+  flex-shrink: 0;
+
   background:
     linear-gradient(
       180deg,
@@ -280,6 +288,7 @@
   line-height: 1.7;
 }
 
+
 /* =========================================
    MY APPROACH — RIGHT SIDE
    ========================================= */
@@ -293,6 +302,8 @@
 
   align-items: center;
   justify-content: center;
+
+  min-width: 0;
 }
 
 
@@ -313,6 +324,13 @@
 
   border-radius: 12px;
 
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 
@@ -337,6 +355,8 @@
 
   align-items: flex-start;
   justify-content: space-between;
+
+  gap: 20px;
 
   padding-bottom: 27px;
 
@@ -387,6 +407,8 @@
 
 
 .approach-number {
+  flex-shrink: 0;
+
   color:
     rgba(125, 136, 255, 0.789);
 
@@ -425,9 +447,11 @@
   grid-template-columns:
     38px
     25px
-    1fr;
+    minmax(0, 1fr);
 
   min-height: 115px;
+
+  width: 100%;
 }
 
 
@@ -462,6 +486,8 @@
   font-size: 8px;
 
   letter-spacing: 0.5px;
+
+  box-sizing: border-box;
 
   transition:
     background 0.3s ease,
@@ -532,6 +558,8 @@
    ========================================= */
 
 .approach-text {
+  min-width: 0;
+
   padding:
     0 0 28px 10px;
 }
@@ -576,6 +604,7 @@
 
 
 .approach-text p {
+  width: 100%;
   max-width: 330px;
 
   margin: 7px 0 0;
@@ -634,6 +663,8 @@
   font-size: 8px;
 
   letter-spacing: 0.8px;
+
+  line-height: 1.5;
 }
 
 
@@ -678,30 +709,180 @@
 
 
 /* =========================================
-   TABLET
+   LARGE TABLET
+   1100px
    ========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
-  .approach-card {
-    max-width: 430px;
-
-    padding: 30px 27px;
+  .about-section {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
 
-  .approach-header h3 {
-    font-size: 24px;
+  .about-container {
+    gap: 55px;
+  }
+
+
+  .about-title {
+    font-size: clamp(36px, 4.5vw, 50px);
+  }
+
+
+  .approach-card {
+    max-width: 440px;
   }
 
 }
 
 
 /* =========================================
-   MOBILE
+   TABLET
+   900px
    ========================================= */
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
+
+  .about-section {
+    padding: 100px 5% 75px;
+  }
+
+
+  /*
+    IMPORTANT:
+    Change desktop 2-column layout
+    into a single column.
+  */
+
+  .about-container {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+
+    max-width: 750px;
+
+    align-items: start;
+  }
+
+
+  .about-content {
+    max-width: 700px;
+  }
+
+
+  .about-title {
+    max-width: 700px;
+
+    font-size: clamp(38px, 6vw, 52px);
+  }
+
+
+  .about-description {
+    max-width: 680px;
+
+    font-size: 14px;
+  }
+
+
+  .about-visual {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .approach-card {
+    width: 100%;
+
+    max-width: 650px;
+
+    padding: 32px 30px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 25px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET / LARGE MOBILE
+   700px
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .about-section {
+    min-height: auto;
+
+    padding: 90px 24px 65px;
+  }
+
+
+  .about-container {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+
+  .about-label {
+    margin-bottom: 20px;
+  }
+
+
+  .about-label span:last-child {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .about-title {
+    font-size: clamp(34px, 9vw, 46px);
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+  }
+
+
+  .about-description {
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  .about-tags {
+    margin-top: 25px;
+
+    gap: 7px;
+  }
+
+
+  .about-tags span {
+    padding: 7px 11px;
+
+    font-size: 9px;
+  }
+
+
+  .about-quote {
+    margin-top: 30px;
+  }
+
+
+  .about-quote p {
+    font-size: 10px;
+  }
+
 
   .about-visual {
     width: 100%;
@@ -712,39 +893,27 @@
     max-width: 100%;
 
     padding: 28px 24px;
-  }
 
-
-  .approach-header h3 {
-    font-size: 24px;
-  }
-
-
-  .approach-text p {
-    max-width: 100%;
-  }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-   ========================================= */
-
-@media (max-width: 450px) {
-
-  .approach-card {
-    padding: 24px 20px;
+    border-radius: 10px;
   }
 
 
   .approach-header {
-    padding-bottom: 22px;
+    gap: 15px;
+
+    padding-bottom: 23px;
+  }
+
+
+  .approach-mini-label {
+    font-size: 7px;
+
+    letter-spacing: 2.5px;
   }
 
 
   .approach-header h3 {
-    font-size: 22px;
+    font-size: 23px;
   }
 
 
@@ -754,30 +923,221 @@
 
 
   .approach-list {
-    padding-top: 23px;
+    padding-top: 25px;
   }
 
 
   .approach-item {
     grid-template-columns:
       34px
-      20px
-      1fr;
+      22px
+      minmax(0, 1fr);
 
     min-height: 110px;
   }
 
 
   .approach-index {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
 
     font-size: 7px;
   }
 
 
+  .approach-line {
+    width: 22px;
+  }
+
+
   .approach-text {
-    padding-left: 8px;
+    padding:
+      0 0 25px 8px;
+  }
+
+
+  .approach-text h4 {
+    font-size: 16px;
+  }
+
+
+  .approach-text p {
+    max-width: 100%;
+
+    font-size: 9px;
+
+    line-height: 1.65;
+  }
+
+
+  .approach-footer {
+    padding-top: 17px;
+  }
+
+
+  .approach-footer p {
+    font-size: 7px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+   550px
+   ========================================= */
+
+@media (max-width: 550px) {
+
+  .about-section {
+    padding: 80px 20px 55px;
+  }
+
+
+  .about-container {
+    gap: 45px;
+  }
+
+
+  .about-label {
+    gap: 9px;
+
+    margin-bottom: 18px;
+  }
+
+
+  .about-label-line {
+    width: 30px;
+  }
+
+
+  .about-label span:last-child {
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+  }
+
+
+  .about-title {
+    font-size: clamp(32px, 10vw, 42px);
+
+    letter-spacing: -1.2px;
+  }
+
+
+  .about-description {
+    margin-top: 20px;
+
+    font-size: 12.5px;
+
+    line-height: 1.8;
+  }
+
+
+  .about-description + .about-description {
+    margin-top: 12px;
+  }
+
+
+  .about-tags {
+    margin-top: 23px;
+  }
+
+
+  .about-quote {
+    margin-top: 27px;
+
+    gap: 10px;
+  }
+
+
+  .about-quote p {
+    font-size: 9.5px;
+  }
+
+
+  .approach-card {
+    padding: 25px 20px;
+  }
+
+
+  .approach-header {
+    gap: 10px;
+
+    padding-bottom: 20px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 21px;
+
+    letter-spacing: -0.5px;
+  }
+
+
+  .approach-mini-label {
+    margin-bottom: 9px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .approach-number {
+    padding-top: 2px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .approach-list {
+    padding-top: 22px;
+  }
+
+
+  .approach-item {
+    grid-template-columns:
+      31px
+      19px
+      minmax(0, 1fr);
+
+    min-height: 105px;
+  }
+
+
+  .approach-index {
+    width: 26px;
+    height: 26px;
+
+    font-size: 6.5px;
+  }
+
+
+  .approach-line {
+    width: 19px;
+  }
+
+
+  .approach-line::before {
+    top: 27px;
+  }
+
+
+  .approach-text {
+    padding:
+      0 0 23px 7px;
+  }
+
+
+  .approach-label {
+    margin-bottom: 6px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 2px;
   }
 
 
@@ -787,12 +1147,241 @@
 
 
   .approach-text p {
-    font-size: 9px;
+    margin-top: 6px;
+
+    font-size: 8.5px;
+
+    line-height: 1.65;
+  }
+
+
+  .approach-footer {
+    gap: 7px;
+
+    padding-top: 15px;
+  }
+
+
+  .approach-footer-dot {
+    width: 4px;
+    height: 4px;
   }
 
 
   .approach-footer p {
-    font-size: 7px;
+    font-size: 6.5px;
+
+    letter-spacing: 0.5px;
+  }
+
+
+  .approach-decoration {
+    right: -90px;
+    bottom: -90px;
+
+    width: 170px;
+    height: 170px;
+  }
+
+
+  .approach-decoration::before {
+    width: 120px;
+    height: 120px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   400px
+   ========================================= */
+
+@media (max-width: 400px) {
+
+  .about-section {
+    padding:
+      70px
+      16px
+      50px;
+  }
+
+
+  .about-container {
+    gap: 40px;
+  }
+
+
+  .about-title {
+    font-size: 31px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .about-description {
+    font-size: 11.5px;
+
+    line-height: 1.75;
+  }
+
+
+  .about-tags {
+    gap: 6px;
+  }
+
+
+  .about-tags span {
+    padding: 6px 9px;
+
+    font-size: 8px;
+  }
+
+
+  .about-quote p {
+    font-size: 8.5px;
+  }
+
+
+  .approach-card {
+    padding:
+      22px
+      16px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 19px;
+  }
+
+
+  .approach-number {
+    font-size: 5.5px;
+  }
+
+
+  .approach-item {
+    grid-template-columns:
+      29px
+      17px
+      minmax(0, 1fr);
+  }
+
+
+  .approach-index {
+    width: 24px;
+    height: 24px;
+
+    font-size: 6px;
+  }
+
+
+  .approach-line {
+    width: 17px;
+  }
+
+
+  .approach-line::before {
+    top: 25px;
+  }
+
+
+  .approach-text {
+    padding-left: 6px;
+  }
+
+
+  .approach-text h4 {
+    font-size: 14px;
+  }
+
+
+  .approach-text p {
+    font-size: 8px;
+
+    line-height: 1.6;
+  }
+
+
+  .approach-label {
+    font-size: 6px;
+
+    letter-spacing: 1.7px;
+  }
+
+
+  .approach-footer p {
+    font-size: 6px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+   350px
+   ========================================= */
+
+@media (max-width: 350px) {
+
+  .about-section {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+
+  .about-title {
+    font-size: 28px;
+  }
+
+
+  .about-description {
+    font-size: 11px;
+  }
+
+
+  .approach-card {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+
+  .approach-header h3 {
+    font-size: 18px;
+  }
+
+
+  .approach-item {
+    grid-template-columns:
+      27px
+      15px
+      minmax(0, 1fr);
+  }
+
+
+  .approach-index {
+    width: 23px;
+    height: 23px;
+  }
+
+
+  .approach-line {
+    width: 15px;
+  }
+
+
+  .approach-text {
+    padding-left: 5px;
+  }
+
+
+  .approach-text h4 {
+    font-size: 13px;
+  }
+
+
+  .approach-text p {
+    font-size: 7.5px;
   }
 
 }
