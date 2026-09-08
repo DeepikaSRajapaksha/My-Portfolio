@@ -224,7 +224,7 @@ const Contact = () => {
                 <div className="contact-social-links">
 
                   <a
-                    href="https://github.com/DeepikaRajapaksha"
+                    href="https://github.com/DeepikaSRajapaksha"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"
@@ -233,7 +233,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="https://www.linkedin.com/"
+                    href="https://www.linkedin.com/in/deepika-sewwandi-rajapaksha/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
